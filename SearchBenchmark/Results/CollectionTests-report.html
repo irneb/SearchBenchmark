@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>CollectionTests</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.10.3.0, OS=Microsoft Windows NT 6.2.9200.0
+Processor=Intel(R) Core(TM) i7-5930K CPU 3.50GHz, ProcessorCount=12
+Frequency=3417972 Hz, Resolution=292.5712 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                 Method</th><th>Length</th><th>        Mean</th><th>  StdDev</th>
+</tr>
+</thead><tbody><tr><td>               ListFind</td><td>100</td><td> 210.8728 ns</td><td>0.2828 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>100</td><td> 263.5013 ns</td><td>0.6537 ns</td>
+</tr><tr><td>          ListForSearch</td><td>100</td><td> 132.0602 ns</td><td>3.1448 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>100</td><td>  29.5608 ns</td><td>0.0235 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>100</td><td> 253.4067 ns</td><td>2.2634 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>100</td><td>  10.8739 ns</td><td>0.0174 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>100</td><td> 401.3303 ns</td><td>0.1154 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>100</td><td>  13.4186 ns</td><td>0.0104 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>100</td><td>  51.1954 ns</td><td>0.0582 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>100</td><td>1,564.6841 ns</td><td>1.9752 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>100</td><td>  51.6454 ns</td><td>0.0913 ns</td>
+</tr><tr><td>               ListFind</td><td>1000</td><td>1,926.5068 ns</td><td>3.6660 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>1000</td><td>2,402.0682 ns</td><td>1.3194 ns</td>
+</tr><tr><td>          ListForSearch</td><td>1000</td><td>1,269.8392 ns</td><td>15.5053 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>1000</td><td>  36.2189 ns</td><td>0.0286 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>1000</td><td>2,415.2781 ns</td><td>5.7607 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>1000</td><td>  10.8713 ns</td><td>0.0125 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>1000</td><td>3,840.8775 ns</td><td>2.5489 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>1000</td><td>  13.4448 ns</td><td>0.0199 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>1000</td><td> 101.6691 ns</td><td>0.0553 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>1000</td><td>15,773.1005 ns</td><td>17.8597 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>1000</td><td> 102.0352 ns</td><td>0.1102 ns</td>
+</tr><tr><td>               ListFind</td><td>10000</td><td>19,156.8934 ns</td><td>8.6780 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>10000</td><td>23,925.7998 ns</td><td>7.8927 ns</td>
+</tr><tr><td>          ListForSearch</td><td>10000</td><td>12,064.5665 ns</td><td>276.3725 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>10000</td><td>  44.6416 ns</td><td>0.0549 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>10000</td><td>24,400.1280 ns</td><td>23.9741 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>10000</td><td>  10.8717 ns</td><td>0.0049 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>10000</td><td>38,497.8015 ns</td><td>12.0532 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>10000</td><td>  13.3727 ns</td><td>0.0182 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>10000</td><td> 123.9992 ns</td><td>0.5270 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>10000</td><td>170,634.9806 ns</td><td>165.3908 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>10000</td><td> 125.1158 ns</td><td>1.7314 ns</td>
+</tr><tr><td>               ListFind</td><td>100000</td><td>192,384.2266 ns</td><td>278.4124 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>100000</td><td>239,289.7963 ns</td><td>115.2376 ns</td>
+</tr><tr><td>          ListForSearch</td><td>100000</td><td>107,086.0887 ns</td><td>306.9392 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>100000</td><td>  51.5410 ns</td><td>0.7844 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>100000</td><td>250,084.8588 ns</td><td>4,401.0654 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>100000</td><td>  10.8875 ns</td><td>0.0101 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>100000</td><td>385,293.9692 ns</td><td>286.8841 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>100000</td><td>  13.4074 ns</td><td>0.0036 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>100000</td><td> 152.7852 ns</td><td>0.6526 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>100000</td><td>1,705,311.7587 ns</td><td>8,666.0117 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>100000</td><td> 152.0239 ns</td><td>0.0484 ns</td>
+</tr><tr><td>               ListFind</td><td>1000000</td><td>2,079,932.8314 ns</td><td>31,990.4845 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>1000000</td><td>2,386,364.9104 ns</td><td>253.9154 ns</td>
+</tr><tr><td>          ListForSearch</td><td>1000000</td><td>1,068,988.2407 ns</td><td>1,576.1544 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>1000000</td><td>  57.3881 ns</td><td>0.0421 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>1000000</td><td>4,461,480.2765 ns</td><td>1,592.8922 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>1000000</td><td>  10.8584 ns</td><td>0.0025 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>1000000</td><td>3,887,899.9984 ns</td><td>1,120.7314 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>1000000</td><td>  13.4597 ns</td><td>0.0020 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>1000000</td><td> 179.3557 ns</td><td>0.4993 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>1000000</td><td>25,406,147.1839 ns</td><td>43,220.3619 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>1000000</td><td> 178.4695 ns</td><td>0.3371 ns</td>
+</tr></tbody></table>
+</body>
+</html>
