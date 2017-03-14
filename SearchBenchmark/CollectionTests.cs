@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Attributes.Exporters;
+using BenchmarkDotNet.Attributes.Jobs;
 
 namespace SearchBenchmark
 {
+    [LegacyJitX86Job, LegacyJitX64Job, RyuJitX64Job]
     [AsciiDocExporter]
     [CsvExporter]
     [CsvMeasurementsExporter]
