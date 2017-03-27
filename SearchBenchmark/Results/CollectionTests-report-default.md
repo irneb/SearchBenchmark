@@ -1,75 +1,238 @@
 
 BenchmarkDotNet=v0.10.3.0, OS=Microsoft Windows NT 6.2.9200.0
 Processor=Intel(R) Core(TM) i7-5930K CPU 3.50GHz, ProcessorCount=12
-Frequency=3417972 Hz, Resolution=292.5712 ns, Timer=TSC
-  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
-  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+Frequency=3417963 Hz, Resolution=292.5719 ns, Timer=TSC
+  [Host]       : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+  LegacyJitX64 : Clr 4.0.30319.42000, 64bit LegacyJIT/clrjit-v4.6.81.0;compatjit-v4.6.81.0
+  LegacyJitX86 : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+  RyuJitX64    : Clr 4.0.30319.42000, 64bit RyuJIT-v4.6.81.0
 
+Runtime=Clr  
 
-                        Method |  Length |               Mean |         StdDev |
------------------------------- |-------- |------------------- |--------------- |
-                     **ArrayFind** |     **100** |         **70.3899 ns** |      **0.0272 ns** |
-             ArrayBinarySearch |     100 |         27.3728 ns |      0.0196 ns |
-                      ListFind |     100 |        209.7294 ns |      0.1793 ns |
-             ListForEachSearch |     100 |        262.5808 ns |      0.0328 ns |
-                 ListForSearch |     100 |        136.7851 ns |      0.8293 ns |
-              ListBinarySearch |     100 |         29.0765 ns |      0.0469 ns |
-                LinkedListFind |     100 |        255.1997 ns |      5.5559 ns |
-         DictionaryContainsKey |     100 |         10.0276 ns |      0.0080 ns |
-       DictionaryContainsValue |     100 |        401.0131 ns |      0.0384 ns |
-         DictionaryTryGetValue |     100 |         12.4856 ns |      0.0064 ns |
-   SortedDictionaryContainsKey |     100 |         54.7247 ns |      0.0891 ns |
- SortedDictionaryContainsValue |     100 |      1,542.2116 ns |      2.2467 ns |
-   SortedDictionaryTryGetValue |     100 |         51.2307 ns |      0.1371 ns |
-                     **ArrayFind** |    **1000** |        **463.5229 ns** |      **0.3678 ns** |
-             ArrayBinarySearch |    1000 |         34.6840 ns |      0.1350 ns |
-                      ListFind |    1000 |      2,426.1389 ns |      0.5448 ns |
-             ListForEachSearch |    1000 |      2,402.1840 ns |      1.3564 ns |
-                 ListForSearch |    1000 |      1,290.3562 ns |     10.3697 ns |
-              ListBinarySearch |    1000 |         35.3973 ns |      0.0178 ns |
-                LinkedListFind |    1000 |      2,449.0615 ns |     41.1815 ns |
-         DictionaryContainsKey |    1000 |         10.0164 ns |      0.0054 ns |
-       DictionaryContainsValue |    1000 |      3,839.5643 ns |      1.4490 ns |
-         DictionaryTryGetValue |    1000 |         12.4794 ns |      0.0112 ns |
-   SortedDictionaryContainsKey |    1000 |        106.4892 ns |      0.2775 ns |
- SortedDictionaryContainsValue |    1000 |     15,525.8734 ns |     24.2611 ns |
-   SortedDictionaryTryGetValue |    1000 |        105.9665 ns |      0.1884 ns |
-                     **ArrayFind** |   **10000** |      **4,438.5507 ns** |      **1.2479 ns** |
-             ArrayBinarySearch |   10000 |         43.1142 ns |      0.1283 ns |
-                      ListFind |   10000 |     19,139.3735 ns |     18.1428 ns |
-             ListForEachSearch |   10000 |     23,921.7689 ns |      3.8912 ns |
-                 ListForSearch |   10000 |     12,011.4781 ns |    158.9679 ns |
-              ListBinarySearch |   10000 |         43.9553 ns |      0.0627 ns |
-                LinkedListFind |   10000 |     24,659.4203 ns |     64.7284 ns |
-         DictionaryContainsKey |   10000 |         10.8376 ns |      0.0007 ns |
-       DictionaryContainsValue |   10000 |     38,541.6753 ns |     11.9302 ns |
-         DictionaryTryGetValue |   10000 |         12.5077 ns |      0.0158 ns |
-   SortedDictionaryContainsKey |   10000 |        129.6064 ns |      0.1757 ns |
- SortedDictionaryContainsValue |   10000 |    167,911.5655 ns |    387.1562 ns |
-   SortedDictionaryTryGetValue |   10000 |        127.3840 ns |      0.8615 ns |
-                     **ArrayFind** |  **100000** |     **44,231.2578 ns** |    **167.5531 ns** |
-             ArrayBinarySearch |  100000 |         48.7704 ns |      0.0427 ns |
-                      ListFind |  100000 |    196,759.8578 ns |  2,118.8579 ns |
-             ListForEachSearch |  100000 |    238,723.3444 ns |     75.2686 ns |
-                 ListForSearch |  100000 |    118,838.2870 ns |    677.1182 ns |
-              ListBinarySearch |  100000 |         50.3197 ns |      0.1266 ns |
-                LinkedListFind |  100000 |    242,946.9282 ns |    281.9325 ns |
-         DictionaryContainsKey |  100000 |         10.0088 ns |      0.0027 ns |
-       DictionaryContainsValue |  100000 |    385,320.8908 ns |     60.0131 ns |
-         DictionaryTryGetValue |  100000 |         12.4943 ns |      0.0240 ns |
-   SortedDictionaryContainsKey |  100000 |        154.8327 ns |      0.3706 ns |
- SortedDictionaryContainsValue |  100000 |  1,702,128.3516 ns |  4,170.1724 ns |
-   SortedDictionaryTryGetValue |  100000 |        155.3029 ns |      0.3063 ns |
-                     **ArrayFind** | **1000000** |    **440,085.1190 ns** |    **361.1147 ns** |
-             ArrayBinarySearch | 1000000 |         55.2429 ns |      0.0576 ns |
-                      ListFind | 1000000 |  2,085,966.8533 ns | 17,568.6211 ns |
-             ListForEachSearch | 1000000 |  2,386,487.6539 ns |    693.6862 ns |
-                 ListForSearch | 1000000 |  1,171,371.9148 ns |    814.8348 ns |
-              ListBinarySearch | 1000000 |         56.7680 ns |      0.0131 ns |
-                LinkedListFind | 1000000 |  4,421,718.3098 ns |  2,893.9549 ns |
-         DictionaryContainsKey | 1000000 |         10.0137 ns |      0.0109 ns |
-       DictionaryContainsValue | 1000000 |  3,886,768.4185 ns |  4,171.3115 ns |
-         DictionaryTryGetValue | 1000000 |         12.4961 ns |      0.0085 ns |
-   SortedDictionaryContainsKey | 1000000 |        180.7635 ns |      1.1392 ns |
- SortedDictionaryContainsValue | 1000000 | 24,639,463.9183 ns | 51,794.0397 ns |
-   SortedDictionaryTryGetValue | 1000000 |        182.5656 ns |      0.1551 ns |
+                        Method |          Job |       Jit | Platform |  Length |               Mean |         StdErr |          StdDev |             Median |
+------------------------------ |------------- |---------- |--------- |-------- |------------------- |--------------- |---------------- |------------------- |
+                     **ArrayFind** | **LegacyJitX64** | **LegacyJit** |      **X64** |     **100** |         **70.3315 ns** |      **0.0073 ns** |       **0.0253 ns** |         **70.3258 ns** |
+             ArrayParallelFind | LegacyJitX64 | LegacyJit |      X64 |     100 |      5,316.5206 ns |     10.9345 ns |      42.3492 ns |      5,320.1200 ns |
+             ArrayBinarySearch | LegacyJitX64 | LegacyJit |      X64 |     100 |         25.9810 ns |      0.0124 ns |       0.0481 ns |         25.9617 ns |
+                      ListFind | LegacyJitX64 | LegacyJit |      X64 |     100 |        274.1602 ns |      0.2592 ns |       0.9700 ns |        274.4283 ns |
+              ListParallelFind | LegacyJitX64 | LegacyJit |      X64 |     100 |      5,564.9400 ns |     16.2350 ns |      62.8777 ns |      5,547.9025 ns |
+             ListForEachSearch | LegacyJitX64 | LegacyJit |      X64 |     100 |        269.0208 ns |      0.0672 ns |       0.2327 ns |        268.9254 ns |
+                 ListForSearch | LegacyJitX64 | LegacyJit |      X64 |     100 |        198.6369 ns |      0.9753 ns |       3.6492 ns |        197.1339 ns |
+              ListBinarySearch | LegacyJitX64 | LegacyJit |      X64 |     100 |         28.9894 ns |      0.0156 ns |       0.0561 ns |         29.0022 ns |
+                LinkedListFind | LegacyJitX64 | LegacyJit |      X64 |     100 |        206.8565 ns |      2.0720 ns |       9.7188 ns |        201.3658 ns |
+         DictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |     100 |          9.2134 ns |      0.0057 ns |       0.0213 ns |          9.2067 ns |
+       DictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |     100 |        291.7224 ns |      0.7847 ns |       3.0392 ns |        291.8152 ns |
+         DictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |     100 |         11.0837 ns |      0.0071 ns |       0.0275 ns |         11.0702 ns |
+   SortedDictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |     100 |         52.8664 ns |      0.0328 ns |       0.1229 ns |         52.8698 ns |
+ SortedDictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |     100 |      1,528.3682 ns |      1.8382 ns |       6.3678 ns |      1,526.4075 ns |
+   SortedDictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |     100 |         51.7051 ns |      0.0243 ns |       0.0877 ns |         51.6668 ns |
+                     ArrayFind | LegacyJitX86 | LegacyJit |      X86 |     100 |         71.0050 ns |      0.0358 ns |       0.1340 ns |         71.0197 ns |
+             ArrayParallelFind | LegacyJitX86 | LegacyJit |      X86 |     100 |     13,177.1555 ns |     44.6018 ns |     172.7419 ns |     13,153.9543 ns |
+             ArrayBinarySearch | LegacyJitX86 | LegacyJit |      X86 |     100 |         27.6989 ns |      0.0275 ns |       0.1029 ns |         27.6900 ns |
+                      ListFind | LegacyJitX86 | LegacyJit |      X86 |     100 |        229.3276 ns |      0.2214 ns |       0.7982 ns |        229.4620 ns |
+              ListParallelFind | LegacyJitX86 | LegacyJit |      X86 |     100 |     14,687.1497 ns |     45.5914 ns |     176.5746 ns |     14,677.2878 ns |
+             ListForEachSearch | LegacyJitX86 | LegacyJit |      X86 |     100 |        261.8959 ns |      0.1155 ns |       0.4472 ns |        261.7210 ns |
+                 ListForSearch | LegacyJitX86 | LegacyJit |      X86 |     100 |        152.6690 ns |      1.5374 ns |      11.0866 ns |        153.6969 ns |
+              ListBinarySearch | LegacyJitX86 | LegacyJit |      X86 |     100 |         29.0386 ns |      0.0011 ns |       0.0038 ns |         29.0394 ns |
+                LinkedListFind | LegacyJitX86 | LegacyJit |      X86 |     100 |        275.6823 ns |      0.0528 ns |       0.2043 ns |        275.5886 ns |
+         DictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |     100 |          9.7708 ns |      0.0057 ns |       0.0214 ns |          9.7610 ns |
+       DictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |     100 |        400.8751 ns |      0.0935 ns |       0.3370 ns |        400.9918 ns |
+         DictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |     100 |         12.8767 ns |      0.0463 ns |       0.1792 ns |         12.9259 ns |
+   SortedDictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |     100 |         51.7967 ns |      0.0818 ns |       0.3168 ns |         51.8952 ns |
+ SortedDictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |     100 |      1,620.9640 ns |      0.4313 ns |       1.5549 ns |      1,620.6084 ns |
+   SortedDictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |     100 |         51.7044 ns |      0.0378 ns |       0.1465 ns |         51.6937 ns |
+                     ArrayFind |    RyuJitX64 |    RyuJit |      X64 |     100 |         70.2485 ns |      0.0124 ns |       0.0448 ns |         70.2419 ns |
+             ArrayParallelFind |    RyuJitX64 |    RyuJit |      X64 |     100 |      5,109.6809 ns |     32.2096 ns |     124.7474 ns |      5,110.1003 ns |
+             ArrayBinarySearch |    RyuJitX64 |    RyuJit |      X64 |     100 |         26.0052 ns |      0.0594 ns |       0.2222 ns |         25.9395 ns |
+                      ListFind |    RyuJitX64 |    RyuJit |      X64 |     100 |        305.9104 ns |      0.0197 ns |       0.0735 ns |        305.8906 ns |
+              ListParallelFind |    RyuJitX64 |    RyuJit |      X64 |     100 |      5,489.9961 ns |     23.9416 ns |      92.7254 ns |      5,477.3946 ns |
+             ListForEachSearch |    RyuJitX64 |    RyuJit |      X64 |     100 |        230.8322 ns |      0.1214 ns |       0.4205 ns |        230.6986 ns |
+                 ListForSearch |    RyuJitX64 |    RyuJit |      X64 |     100 |        124.7957 ns |      0.5621 ns |       2.1033 ns |        124.5282 ns |
+              ListBinarySearch |    RyuJitX64 |    RyuJit |      X64 |     100 |         28.3131 ns |      0.0087 ns |       0.0302 ns |         28.3076 ns |
+                LinkedListFind |    RyuJitX64 |    RyuJit |      X64 |     100 |        199.7212 ns |      0.0152 ns |       0.0569 ns |        199.7174 ns |
+         DictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |     100 |          8.9752 ns |      0.0003 ns |       0.0010 ns |          8.9753 ns |
+       DictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |     100 |        289.9779 ns |      1.4092 ns |       5.0810 ns |        291.5343 ns |
+         DictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |     100 |         11.0071 ns |      0.0003 ns |       0.0010 ns |         11.0071 ns |
+   SortedDictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |     100 |         55.9671 ns |      0.0153 ns |       0.0593 ns |         55.9633 ns |
+ SortedDictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |     100 |      1,453.3651 ns |      1.7454 ns |       6.7599 ns |      1,454.2206 ns |
+   SortedDictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |     100 |         55.7735 ns |      0.0180 ns |       0.0696 ns |         55.7704 ns |
+                     **ArrayFind** | **LegacyJitX64** | **LegacyJit** |      **X64** |    **1000** |        **466.7372 ns** |      **0.0152 ns** |       **0.0528 ns** |        **466.7345 ns** |
+             ArrayParallelFind | LegacyJitX64 | LegacyJit |      X64 |    1000 |     14,150.2607 ns |     23.5195 ns |      91.0905 ns |     14,139.2464 ns |
+             ArrayBinarySearch | LegacyJitX64 | LegacyJit |      X64 |    1000 |         27.8085 ns |      0.1243 ns |       0.4815 ns |         27.8299 ns |
+                      ListFind | LegacyJitX64 | LegacyJit |      X64 |    1000 |      2,415.5739 ns |      0.3507 ns |       1.3582 ns |      2,415.1798 ns |
+              ListParallelFind | LegacyJitX64 | LegacyJit |      X64 |    1000 |     14,781.0082 ns |     35.2599 ns |     136.5609 ns |     14,753.0641 ns |
+             ListForEachSearch | LegacyJitX64 | LegacyJit |      X64 |    1000 |      2,465.0703 ns |      0.4084 ns |       1.4147 ns |      2,465.3859 ns |
+                 ListForSearch | LegacyJitX64 | LegacyJit |      X64 |    1000 |      1,384.8783 ns |      3.1769 ns |      12.3041 ns |      1,381.3678 ns |
+              ListBinarySearch | LegacyJitX64 | LegacyJit |      X64 |    1000 |         30.0280 ns |      0.0490 ns |       0.1833 ns |         30.0032 ns |
+                LinkedListFind | LegacyJitX64 | LegacyJit |      X64 |    1000 |      3,329.9466 ns |      5.3576 ns |      20.0462 ns |      3,323.3513 ns |
+         DictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |    1000 |          9.7008 ns |      0.0003 ns |       0.0009 ns |          9.7004 ns |
+       DictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |    1000 |      2,669.6465 ns |      0.3664 ns |       1.2692 ns |      2,670.0001 ns |
+         DictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |    1000 |         11.0635 ns |      0.0049 ns |       0.0182 ns |         11.0539 ns |
+   SortedDictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |    1000 |         99.6466 ns |      0.0431 ns |       0.1612 ns |         99.6136 ns |
+ SortedDictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |    1000 |     15,220.7418 ns |     43.9853 ns |     164.5781 ns |     15,284.4090 ns |
+   SortedDictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |    1000 |         95.6013 ns |      0.0662 ns |       0.2477 ns |         95.5902 ns |
+                     ArrayFind | LegacyJitX86 | LegacyJit |      X86 |    1000 |        462.7136 ns |      0.0276 ns |       0.1067 ns |        462.6990 ns |
+             ArrayParallelFind | LegacyJitX86 | LegacyJit |      X86 |    1000 |     73,109.4468 ns |    246.9982 ns |     956.6198 ns |     73,003.5847 ns |
+             ArrayBinarySearch | LegacyJitX86 | LegacyJit |      X86 |    1000 |         34.1436 ns |      0.0062 ns |       0.0234 ns |         34.1457 ns |
+                      ListFind | LegacyJitX86 | LegacyJit |      X86 |    1000 |      2,129.3691 ns |      0.1078 ns |       0.4035 ns |      2,129.3782 ns |
+              ListParallelFind | LegacyJitX86 | LegacyJit |      X86 |    1000 |     74,294.2536 ns |    311.3895 ns |   1,206.0062 ns |     74,409.9109 ns |
+             ListForEachSearch | LegacyJitX86 | LegacyJit |      X86 |    1000 |      2,402.1656 ns |      1.5398 ns |       5.9638 ns |      2,398.8487 ns |
+                 ListForSearch | LegacyJitX86 | LegacyJit |      X86 |    1000 |      1,365.3142 ns |     12.9066 ns |      51.6263 ns |      1,355.9365 ns |
+              ListBinarySearch | LegacyJitX86 | LegacyJit |      X86 |    1000 |         35.2704 ns |      0.0048 ns |       0.0166 ns |         35.2695 ns |
+                LinkedListFind | LegacyJitX86 | LegacyJit |      X86 |    1000 |      2,552.6360 ns |      1.6386 ns |       5.9081 ns |      2,554.0824 ns |
+         DictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |    1000 |          9.7574 ns |      0.0011 ns |       0.0039 ns |          9.7562 ns |
+       DictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |    1000 |      3,858.3988 ns |      0.9891 ns |       3.7010 ns |      3,857.9779 ns |
+         DictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |    1000 |         12.6303 ns |      0.0013 ns |       0.0046 ns |         12.6294 ns |
+   SortedDictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |    1000 |        102.1172 ns |      0.1591 ns |       0.6161 ns |        101.8169 ns |
+ SortedDictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |    1000 |     16,333.8242 ns |      3.9915 ns |      14.9349 ns |     16,331.4084 ns |
+   SortedDictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |    1000 |        101.3359 ns |      0.0435 ns |       0.1628 ns |        101.2771 ns |
+                     ArrayFind |    RyuJitX64 |    RyuJit |      X64 |    1000 |        469.1257 ns |      0.2559 ns |       0.9228 ns |        468.9552 ns |
+             ArrayParallelFind |    RyuJitX64 |    RyuJit |      X64 |    1000 |     13,904.7246 ns |     27.7055 ns |     107.3029 ns |     13,894.1805 ns |
+             ArrayBinarySearch |    RyuJitX64 |    RyuJit |      X64 |    1000 |         27.6359 ns |      0.0434 ns |       0.1563 ns |         27.6206 ns |
+                      ListFind |    RyuJitX64 |    RyuJit |      X64 |    1000 |      2,913.5860 ns |      0.1452 ns |       0.5624 ns |      2,913.4539 ns |
+              ListParallelFind |    RyuJitX64 |    RyuJit |      X64 |    1000 |     14,653.7211 ns |     30.9440 ns |     119.8457 ns |     14,606.7912 ns |
+             ListForEachSearch |    RyuJitX64 |    RyuJit |      X64 |    1000 |      2,132.7665 ns |      0.6827 ns |       2.5545 ns |      2,131.4460 ns |
+                 ListForSearch |    RyuJitX64 |    RyuJit |      X64 |    1000 |      1,103.8277 ns |      1.3257 ns |       5.1344 ns |      1,103.2161 ns |
+              ListBinarySearch |    RyuJitX64 |    RyuJit |      X64 |    1000 |         29.2830 ns |      0.0231 ns |       0.0832 ns |         29.2621 ns |
+                LinkedListFind |    RyuJitX64 |    RyuJit |      X64 |    1000 |      3,318.0788 ns |      2.0512 ns |       7.9443 ns |      3,317.9987 ns |
+         DictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |    1000 |          9.0128 ns |      0.0049 ns |       0.0183 ns |          9.0147 ns |
+       DictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |    1000 |      2,667.1184 ns |      1.1059 ns |       3.9875 ns |      2,668.2128 ns |
+         DictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |    1000 |         11.0080 ns |      0.0008 ns |       0.0032 ns |         11.0082 ns |
+   SortedDictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |    1000 |        105.6385 ns |      0.3494 ns |       1.3533 ns |        104.6776 ns |
+ SortedDictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |    1000 |     15,310.1127 ns |      4.3175 ns |      16.7217 ns |     15,306.5769 ns |
+   SortedDictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |    1000 |        107.2131 ns |      0.0129 ns |       0.0500 ns |        107.2061 ns |
+                     **ArrayFind** | **LegacyJitX64** | **LegacyJit** |      **X64** |   **10000** |      **4,488.0721 ns** |      **1.2362 ns** |       **4.2824 ns** |      **4,486.6443 ns** |
+             ArrayParallelFind | LegacyJitX64 | LegacyJit |      X64 |   10000 |     41,231.3932 ns |     78.7180 ns |     304.8736 ns |     41,318.4909 ns |
+             ArrayBinarySearch | LegacyJitX64 | LegacyJit |      X64 |   10000 |         34.1519 ns |      0.2047 ns |       0.7659 ns |         34.0358 ns |
+                      ListFind | LegacyJitX64 | LegacyJit |      X64 |   10000 |     23,867.5073 ns |      7.2232 ns |      26.0435 ns |     23,863.9949 ns |
+              ListParallelFind | LegacyJitX64 | LegacyJit |      X64 |   10000 |     44,141.1790 ns |    122.6118 ns |     474.8734 ns |     43,977.3835 ns |
+             ListForEachSearch | LegacyJitX64 | LegacyJit |      X64 |   10000 |     24,355.9722 ns |      0.7663 ns |       2.6544 ns |     24,355.6285 ns |
+                 ListForSearch | LegacyJitX64 | LegacyJit |      X64 |   10000 |     13,398.5213 ns |     53.1844 ns |     205.9821 ns |     13,300.1224 ns |
+              ListBinarySearch | LegacyJitX64 | LegacyJit |      X64 |   10000 |         36.2965 ns |      0.0161 ns |       0.0625 ns |         36.3157 ns |
+                LinkedListFind | LegacyJitX64 | LegacyJit |      X64 |   10000 |     39,125.7386 ns |      1.5350 ns |       5.7436 ns |     39,126.8432 ns |
+         DictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |   10000 |          9.1933 ns |      0.0006 ns |       0.0020 ns |          9.1934 ns |
+       DictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |   10000 |     26,229.8588 ns |    129.4583 ns |     593.2523 ns |     26,437.4790 ns |
+         DictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |   10000 |         11.0564 ns |      0.0005 ns |       0.0019 ns |         11.0559 ns |
+   SortedDictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |   10000 |        119.4372 ns |      0.1669 ns |       0.6466 ns |        119.5423 ns |
+ SortedDictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |   10000 |    171,238.3738 ns |    393.1393 ns |   1,522.6220 ns |    172,035.8132 ns |
+   SortedDictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |   10000 |        117.2682 ns |      0.0380 ns |       0.1470 ns |        117.3438 ns |
+                     ArrayFind | LegacyJitX86 | LegacyJit |      X86 |   10000 |      4,433.8405 ns |      0.2017 ns |       0.7813 ns |      4,433.7316 ns |
+             ArrayParallelFind | LegacyJitX86 | LegacyJit |      X86 |   10000 |    193,379.1334 ns |  1,917.2811 ns |   9,776.2537 ns |    191,585.1413 ns |
+             ArrayBinarySearch | LegacyJitX86 | LegacyJit |      X86 |   10000 |         43.2848 ns |      0.0062 ns |       0.0241 ns |         43.2799 ns |
+                      ListFind | LegacyJitX86 | LegacyJit |      X86 |   10000 |     21,111.1935 ns |      0.3913 ns |       1.4108 ns |     21,110.9641 ns |
+              ListParallelFind | LegacyJitX86 | LegacyJit |      X86 |   10000 |    195,404.8335 ns |  1,377.4498 ns |   5,334.8402 ns |    194,021.2407 ns |
+             ListForEachSearch | LegacyJitX86 | LegacyJit |      X86 |   10000 |     23,936.3897 ns |      0.7142 ns |       2.5751 ns |     23,935.6260 ns |
+                 ListForSearch | LegacyJitX86 | LegacyJit |      X86 |   10000 |     12,518.1901 ns |    116.1954 ns |     450.0228 ns |     12,282.2266 ns |
+              ListBinarySearch | LegacyJitX86 | LegacyJit |      X86 |   10000 |         44.7172 ns |      0.0036 ns |       0.0138 ns |         44.7193 ns |
+                LinkedListFind | LegacyJitX86 | LegacyJit |      X86 |   10000 |     26,540.7944 ns |     21.8026 ns |      72.3110 ns |     26,524.9113 ns |
+         DictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |   10000 |          9.7595 ns |      0.0004 ns |       0.0014 ns |          9.7592 ns |
+       DictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |   10000 |     38,478.6946 ns |      0.3947 ns |       1.4231 ns |     38,478.6314 ns |
+         DictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |   10000 |         12.6574 ns |      0.0005 ns |       0.0021 ns |         12.6572 ns |
+   SortedDictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |   10000 |        122.8311 ns |      0.0491 ns |       0.1836 ns |        122.7748 ns |
+ SortedDictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |   10000 |    174,678.3258 ns |     27.6414 ns |     103.4245 ns |    174,680.6320 ns |
+   SortedDictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |   10000 |        123.2437 ns |      0.0459 ns |       0.1717 ns |        123.2083 ns |
+                     ArrayFind |    RyuJitX64 |    RyuJit |      X64 |   10000 |      4,546.3965 ns |     11.3098 ns |      42.3175 ns |      4,548.1803 ns |
+             ArrayParallelFind |    RyuJitX64 |    RyuJit |      X64 |   10000 |     40,375.9108 ns |     76.6218 ns |     296.7548 ns |     40,388.5918 ns |
+             ArrayBinarySearch |    RyuJitX64 |    RyuJit |      X64 |   10000 |         33.8551 ns |      0.1567 ns |       0.6069 ns |         33.7027 ns |
+                      ListFind |    RyuJitX64 |    RyuJit |      X64 |   10000 |     26,582.4871 ns |     19.4228 ns |      72.6735 ns |     26,591.7269 ns |
+              ListParallelFind |    RyuJitX64 |    RyuJit |      X64 |   10000 |     44,000.2480 ns |     57.0915 ns |     213.6169 ns |     44,015.8526 ns |
+             ListForEachSearch |    RyuJitX64 |    RyuJit |      X64 |   10000 |     21,121.1630 ns |      0.4855 ns |       1.8166 ns |     21,120.7689 ns |
+                 ListForSearch |    RyuJitX64 |    RyuJit |      X64 |   10000 |     11,166.3640 ns |     25.2273 ns |      97.7051 ns |     11,166.1021 ns |
+              ListBinarySearch |    RyuJitX64 |    RyuJit |      X64 |   10000 |         35.4561 ns |      0.0227 ns |       0.0878 ns |         35.4632 ns |
+                LinkedListFind |    RyuJitX64 |    RyuJit |      X64 |   10000 |     38,954.7735 ns |      1.8096 ns |       6.7710 ns |     38,954.7608 ns |
+         DictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |   10000 |          8.9784 ns |      0.0005 ns |       0.0019 ns |          8.9783 ns |
+       DictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |   10000 |     26,456.0051 ns |      3.8655 ns |      14.4633 ns |     26,449.7397 ns |
+         DictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |   10000 |         11.0146 ns |      0.0012 ns |       0.0044 ns |         11.0136 ns |
+   SortedDictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |   10000 |        131.1437 ns |      0.0178 ns |       0.0666 ns |        131.1623 ns |
+ SortedDictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |   10000 |    174,222.0019 ns |    110.0452 ns |     411.7515 ns |    174,193.6549 ns |
+   SortedDictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |   10000 |        128.3619 ns |      0.0068 ns |       0.0255 ns |        128.3659 ns |
+                     **ArrayFind** | **LegacyJitX64** | **LegacyJit** |      **X64** |  **100000** |     **44,566.7678 ns** |      **1.3954 ns** |       **4.8338 ns** |     **44,565.3452 ns** |
+             ArrayParallelFind | LegacyJitX64 | LegacyJit |      X64 |  100000 |    156,825.3993 ns |  1,553.4005 ns |   8,071.7060 ns |    157,970.3324 ns |
+             ArrayBinarySearch | LegacyJitX64 | LegacyJit |      X64 |  100000 |         37.6995 ns |      0.2015 ns |       0.7805 ns |         37.8178 ns |
+                      ListFind | LegacyJitX64 | LegacyJit |      X64 |  100000 |    237,629.0596 ns |     95.1209 ns |     355.9097 ns |    237,696.4475 ns |
+              ListParallelFind | LegacyJitX64 | LegacyJit |      X64 |  100000 |    179,493.0924 ns |  1,966.7964 ns |   7,617.3695 ns |    179,674.6070 ns |
+             ListForEachSearch | LegacyJitX64 | LegacyJit |      X64 |  100000 |    243,356.4352 ns |     49.1892 ns |     184.0493 ns |    243,354.4761 ns |
+                 ListForSearch | LegacyJitX64 | LegacyJit |      X64 |  100000 |    132,364.3729 ns |     91.0409 ns |     328.2528 ns |    132,267.7463 ns |
+              ListBinarySearch | LegacyJitX64 | LegacyJit |      X64 |  100000 |         40.7587 ns |      0.0641 ns |       0.2399 ns |         40.7654 ns |
+                LinkedListFind | LegacyJitX64 | LegacyJit |      X64 |  100000 |    420,721.5078 ns |  4,056.1090 ns |  15,709.2425 ns |    410,970.9390 ns |
+         DictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |  100000 |          9.1981 ns |      0.0012 ns |       0.0046 ns |          9.1971 ns |
+       DictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |  100000 |    249,385.4672 ns |  1,511.7889 ns |   5,656.5961 ns |    247,793.1788 ns |
+         DictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |  100000 |         11.0608 ns |      0.0005 ns |       0.0018 ns |         11.0611 ns |
+   SortedDictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 |  100000 |        143.5520 ns |      0.0261 ns |       0.0976 ns |        143.5083 ns |
+ SortedDictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 |  100000 |  1,833,006.9802 ns |  1,357.1438 ns |   5,077.9671 ns |  1,831,845.6722 ns |
+   SortedDictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 |  100000 |        143.8741 ns |      0.0263 ns |       0.0911 ns |        143.8780 ns |
+                     ArrayFind | LegacyJitX86 | LegacyJit |      X86 |  100000 |     44,086.1772 ns |      1.8959 ns |       7.0937 ns |     44,086.1313 ns |
+             ArrayParallelFind | LegacyJitX86 | LegacyJit |      X86 |  100000 |    535,988.3453 ns |  6,727.7213 ns |  66,939.9813 ns |    536,669.1314 ns |
+             ArrayBinarySearch | LegacyJitX86 | LegacyJit |      X86 |  100000 |         49.1953 ns |      0.0037 ns |       0.0138 ns |         49.1959 ns |
+                      ListFind | LegacyJitX86 | LegacyJit |      X86 |  100000 |    210,895.3181 ns |      5.5943 ns |      20.9318 ns |    210,886.7262 ns |
+              ListParallelFind | LegacyJitX86 | LegacyJit |      X86 |  100000 |    622,658.0181 ns |  6,221.4063 ns |  58,361.9648 ns |    629,556.3543 ns |
+             ListForEachSearch | LegacyJitX86 | LegacyJit |      X86 |  100000 |    238,700.4397 ns |     12.0027 ns |      46.4861 ns |    238,681.8301 ns |
+                 ListForSearch | LegacyJitX86 | LegacyJit |      X86 |  100000 |    118,441.0445 ns |    113.5900 ns |     393.4871 ns |    118,285.8657 ns |
+              ListBinarySearch | LegacyJitX86 | LegacyJit |      X86 |  100000 |         50.4038 ns |      0.0028 ns |       0.0106 ns |         50.4025 ns |
+                LinkedListFind | LegacyJitX86 | LegacyJit |      X86 |  100000 |    247,802.7978 ns |    338.4445 ns |   1,310.7898 ns |    247,813.3312 ns |
+         DictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |  100000 |          9.7626 ns |      0.0003 ns |       0.0011 ns |          9.7621 ns |
+       DictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |  100000 |    384,496.1032 ns |      6.9075 ns |      24.9053 ns |    384,487.7516 ns |
+         DictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |  100000 |         12.6267 ns |      0.0012 ns |       0.0048 ns |         12.6263 ns |
+   SortedDictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 |  100000 |        150.2088 ns |      0.0511 ns |       0.1979 ns |        150.2414 ns |
+ SortedDictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 |  100000 |  1,760,646.5048 ns |    630.0865 ns |   2,271.8091 ns |  1,760,705.9334 ns |
+   SortedDictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 |  100000 |        150.2892 ns |      0.0215 ns |       0.0744 ns |        150.3094 ns |
+                     ArrayFind |    RyuJitX64 |    RyuJit |      X64 |  100000 |     44,589.6310 ns |      0.9790 ns |       3.3913 ns |     44,588.7500 ns |
+             ArrayParallelFind |    RyuJitX64 |    RyuJit |      X64 |  100000 |    161,329.3598 ns |  1,124.5099 ns |   4,207.5307 ns |    162,181.2490 ns |
+             ArrayBinarySearch |    RyuJitX64 |    RyuJit |      X64 |  100000 |         38.1543 ns |      0.2575 ns |       0.9975 ns |         38.0266 ns |
+                      ListFind |    RyuJitX64 |    RyuJit |      X64 |  100000 |    277,494.3335 ns |    423.6443 ns |   1,640.7672 ns |    277,167.0567 ns |
+              ListParallelFind |    RyuJitX64 |    RyuJit |      X64 |  100000 |    192,824.2101 ns |  1,918.0596 ns |   7,428.6130 ns |    193,328.3538 ns |
+             ListForEachSearch |    RyuJitX64 |    RyuJit |      X64 |  100000 |    211,030.7931 ns |      6.7093 ns |      25.9848 ns |    211,025.9931 ns |
+                 ListForSearch |    RyuJitX64 |    RyuJit |      X64 |  100000 |    112,236.6854 ns |    711.0146 ns |   2,660.3729 ns |    110,601.3051 ns |
+              ListBinarySearch |    RyuJitX64 |    RyuJit |      X64 |  100000 |         40.1136 ns |      0.0210 ns |       0.0759 ns |         40.1072 ns |
+                LinkedListFind |    RyuJitX64 |    RyuJit |      X64 |  100000 |    395,344.0556 ns |    206.8204 ns |     801.0120 ns |    395,129.0838 ns |
+         DictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |  100000 |          8.9891 ns |      0.0009 ns |       0.0035 ns |          8.9880 ns |
+       DictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |  100000 |    258,449.9410 ns |    246.1269 ns |     887.4231 ns |    258,581.5017 ns |
+         DictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |  100000 |         11.0037 ns |      0.0009 ns |       0.0036 ns |         11.0029 ns |
+   SortedDictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 |  100000 |        159.7938 ns |      0.1064 ns |       0.3687 ns |        159.6576 ns |
+ SortedDictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 |  100000 |  1,812,587.6543 ns |  2,030.2236 ns |   7,596.4012 ns |  1,810,111.0787 ns |
+   SortedDictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 |  100000 |        159.9685 ns |      0.0185 ns |       0.0694 ns |        159.9541 ns |
+                     **ArrayFind** | **LegacyJitX64** | **LegacyJit** |      **X64** | **1000000** |    **444,827.6272 ns** |      **5.7399 ns** |      **21.4767 ns** |    **444,825.0150 ns** |
+             ArrayParallelFind | LegacyJitX64 | LegacyJit |      X64 | 1000000 |    228,868.0456 ns |  3,333.8554 ns |  33,171.4428 ns |    235,943.5207 ns |
+             ArrayBinarySearch | LegacyJitX64 | LegacyJit |      X64 | 1000000 |         49.2552 ns |      0.1261 ns |       0.4717 ns |         49.3802 ns |
+                      ListFind | LegacyJitX64 | LegacyJit |      X64 | 1000000 |  2,372,784.6276 ns |    494.4577 ns |   1,782.7927 ns |  2,372,061.2857 ns |
+              ListParallelFind | LegacyJitX64 | LegacyJit |      X64 | 1000000 |    573,881.0035 ns |  6,464.2777 ns |  25,036.0398 ns |    573,036.4307 ns |
+             ListForEachSearch | LegacyJitX64 | LegacyJit |      X64 | 1000000 |  2,433,418.1454 ns |    236.7450 ns |     885.8187 ns |  2,433,418.7985 ns |
+                 ListForSearch | LegacyJitX64 | LegacyJit |      X64 | 1000000 |  1,321,259.1766 ns |    590.8004 ns |   2,130.1612 ns |  1,320,694.1646 ns |
+              ListBinarySearch | LegacyJitX64 | LegacyJit |      X64 | 1000000 |         45.5964 ns |      0.0944 ns |       0.3404 ns |         45.5683 ns |
+                LinkedListFind | LegacyJitX64 | LegacyJit |      X64 | 1000000 |  8,133,782.3691 ns |    572.2612 ns |   1,982.3710 ns |  8,134,417.7988 ns |
+         DictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 | 1000000 |          9.2216 ns |      0.0006 ns |       0.0021 ns |          9.2208 ns |
+       DictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 | 1000000 |  2,659,125.0478 ns |  1,041.1392 ns |   3,753.8807 ns |  2,660,241.8848 ns |
+         DictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 | 1000000 |         11.0615 ns |      0.0009 ns |       0.0036 ns |         11.0602 ns |
+   SortedDictionaryContainsKey | LegacyJitX64 | LegacyJit |      X64 | 1000000 |        189.7644 ns |      0.0648 ns |       0.2509 ns |        189.6463 ns |
+ SortedDictionaryContainsValue | LegacyJitX64 | LegacyJit |      X64 | 1000000 | 29,934,797.7874 ns | 17,761.3163 ns |  68,789.2822 ns | 29,947,956.2094 ns |
+   SortedDictionaryTryGetValue | LegacyJitX64 | LegacyJit |      X64 | 1000000 |        169.3055 ns |      0.0381 ns |       0.1474 ns |        169.2622 ns |
+                     ArrayFind | LegacyJitX86 | LegacyJit |      X86 | 1000000 |    439,706.2635 ns |     31.5466 ns |     122.1795 ns |    439,671.4444 ns |
+             ArrayParallelFind | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  1,130,110.7343 ns | 11,273.1762 ns |  93,642.0342 ns |  1,155,327.8864 ns |
+             ArrayBinarySearch | LegacyJitX86 | LegacyJit |      X86 | 1000000 |         55.4237 ns |      0.0056 ns |       0.0216 ns |         55.4332 ns |
+                      ListFind | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  2,107,402.1297 ns |    140.5574 ns |     544.3763 ns |  2,107,226.2818 ns |
+              ListParallelFind | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  1,231,248.9139 ns | 12,292.8707 ns |  84,275.6756 ns |  1,242,230.8898 ns |
+             ListForEachSearch | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  2,387,501.0614 ns |    277.7979 ns |   1,039.4244 ns |  2,387,023.6728 ns |
+                 ListForSearch | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  1,187,563.9788 ns |    120.9117 ns |     452.4101 ns |  1,187,553.6930 ns |
+              ListBinarySearch | LegacyJitX86 | LegacyJit |      X86 | 1000000 |         56.8041 ns |      0.0049 ns |       0.0183 ns |         56.8030 ns |
+                LinkedListFind | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  4,396,382.0898 ns |    532.7072 ns |   1,993.2079 ns |  4,396,952.5398 ns |
+         DictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 | 1000000 |          9.7886 ns |      0.0004 ns |       0.0014 ns |          9.7883 ns |
+       DictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 | 1000000 |  3,878,114.4479 ns |    287.8489 ns |   1,114.8341 ns |  3,878,147.6670 ns |
+         DictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 | 1000000 |         12.6292 ns |      0.0013 ns |       0.0047 ns |         12.6290 ns |
+   SortedDictionaryContainsKey | LegacyJitX86 | LegacyJit |      X86 | 1000000 |        177.2298 ns |      0.0443 ns |       0.1657 ns |        177.2166 ns |
+ SortedDictionaryContainsValue | LegacyJitX86 | LegacyJit |      X86 | 1000000 | 25,963,244.0654 ns | 13,020.7797 ns |  43,185.0407 ns | 25,961,443.7506 ns |
+   SortedDictionaryTryGetValue | LegacyJitX86 | LegacyJit |      X86 | 1000000 |        180.5879 ns |      0.0113 ns |       0.0423 ns |        180.5782 ns |
+                     ArrayFind |    RyuJitX64 |    RyuJit |      X64 | 1000000 |    446,653.1296 ns |     24.8218 ns |      92.8748 ns |    446,634.5990 ns |
+             ArrayParallelFind |    RyuJitX64 |    RyuJit |      X64 | 1000000 |    221,958.7353 ns |  3,866.2932 ns |  38,662.9316 ns |    224,089.5960 ns |
+             ArrayBinarySearch |    RyuJitX64 |    RyuJit |      X64 | 1000000 |         43.2994 ns |      0.3434 ns |       1.3301 ns |         43.4445 ns |
+                      ListFind |    RyuJitX64 |    RyuJit |      X64 | 1000000 |  2,777,472.1091 ns |  1,441.2660 ns |   5,581.9992 ns |  2,777,478.3567 ns |
+              ListParallelFind |    RyuJitX64 |    RyuJit |      X64 | 1000000 |    330,178.0970 ns |  3,294.0300 ns |  30,724.6666 ns |    327,827.6563 ns |
+             ListForEachSearch |    RyuJitX64 |    RyuJit |      X64 | 1000000 |  2,109,356.6370 ns |     48.2742 ns |     180.6254 ns |  2,109,274.0246 ns |
+                 ListForSearch |    RyuJitX64 |    RyuJit |      X64 | 1000000 |  1,105,877.2237 ns |  1,782.4892 ns |   6,669.4639 ns |  1,102,642.1978 ns |
+              ListBinarySearch |    RyuJitX64 |    RyuJit |      X64 | 1000000 |         43.1669 ns |      0.0747 ns |       0.2796 ns |         43.1949 ns |
+                LinkedListFind |    RyuJitX64 |    RyuJit |      X64 | 1000000 |  8,090,697.1918 ns |  2,498.4696 ns |   9,676.5312 ns |  8,086,264.1178 ns |
+         DictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 | 1000000 |          8.9816 ns |      0.0007 ns |       0.0026 ns |          8.9805 ns |
+       DictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 | 1000000 |  2,630,260.7296 ns |  9,013.9254 ns |  34,910.7831 ns |  2,633,419.1349 ns |
+         DictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 | 1000000 |         11.0056 ns |      0.0018 ns |       0.0069 ns |         11.0030 ns |
+   SortedDictionaryContainsKey |    RyuJitX64 |    RyuJit |      X64 | 1000000 |        192.0400 ns |      0.1048 ns |       0.3778 ns |        192.0441 ns |
+ SortedDictionaryContainsValue |    RyuJitX64 |    RyuJit |      X64 | 1000000 | 26,976,484.2393 ns | 31,473.5311 ns | 121,896.4619 ns | 26,921,500.2231 ns |
+   SortedDictionaryTryGetValue |    RyuJitX64 |    RyuJit |      X64 | 1000000 |        190.8007 ns |      0.1310 ns |       0.5073 ns |        190.8578 ns |

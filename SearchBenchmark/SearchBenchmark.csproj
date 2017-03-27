@@ -90,6 +90,12 @@
     <None Include="Results\CollectionTests-report.html" />
     <None Include="Results\CollectionTests-SummaryLine.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ParallelSearch\ParallelSearch.csproj">
+      <Project>{58d8c92b-c1b8-4a2c-9ced-c4e8641116aa}</Project>
+      <Name>ParallelSearch</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

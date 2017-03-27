@@ -15,80 +15,243 @@
 <pre><code>
 BenchmarkDotNet=v0.10.3.0, OS=Microsoft Windows NT 6.2.9200.0
 Processor=Intel(R) Core(TM) i7-5930K CPU 3.50GHz, ProcessorCount=12
-Frequency=3417972 Hz, Resolution=292.5712 ns, Timer=TSC
-  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
-  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+Frequency=3417963 Hz, Resolution=292.5719 ns, Timer=TSC
+  [Host]       : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+  LegacyJitX64 : Clr 4.0.30319.42000, 64bit LegacyJIT/clrjit-v4.6.81.0;compatjit-v4.6.81.0
+  LegacyJitX86 : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.6.81.0
+  RyuJitX64    : Clr 4.0.30319.42000, 64bit RyuJIT-v4.6.81.0
 </code></pre>
-<pre><code></code></pre>
+<pre><code>Runtime=Clr  
+</code></pre>
 
 <table>
-<thead><tr><th>                 Method</th><th>Length</th><th>        Mean</th><th>  StdDev</th>
+<thead><tr><th>                 Method</th><th>   Job</th><th>Jit</th><th>Platform</th><th>Length</th><th>        Mean</th><th>  StdErr</th><th>   StdDev</th><th>      Median</th>
 </tr>
-</thead><tbody><tr><td>              ArrayFind</td><td>100</td><td>  70.3899 ns</td><td>0.0272 ns</td>
-</tr><tr><td>      ArrayBinarySearch</td><td>100</td><td>  27.3728 ns</td><td>0.0196 ns</td>
-</tr><tr><td>               ListFind</td><td>100</td><td> 209.7294 ns</td><td>0.1793 ns</td>
-</tr><tr><td>      ListForEachSearch</td><td>100</td><td> 262.5808 ns</td><td>0.0328 ns</td>
-</tr><tr><td>          ListForSearch</td><td>100</td><td> 136.7851 ns</td><td>0.8293 ns</td>
-</tr><tr><td>       ListBinarySearch</td><td>100</td><td>  29.0765 ns</td><td>0.0469 ns</td>
-</tr><tr><td>         LinkedListFind</td><td>100</td><td> 255.1997 ns</td><td>5.5559 ns</td>
-</tr><tr><td>  DictionaryContainsKey</td><td>100</td><td>  10.0276 ns</td><td>0.0080 ns</td>
-</tr><tr><td>DictionaryContainsValue</td><td>100</td><td> 401.0131 ns</td><td>0.0384 ns</td>
-</tr><tr><td>  DictionaryTryGetValue</td><td>100</td><td>  12.4856 ns</td><td>0.0064 ns</td>
-</tr><tr><td>SortedDictionaryContainsKey</td><td>100</td><td>  54.7247 ns</td><td>0.0891 ns</td>
-</tr><tr><td>SortedDictionaryContainsValue</td><td>100</td><td>1,542.2116 ns</td><td>2.2467 ns</td>
-</tr><tr><td>SortedDictionaryTryGetValue</td><td>100</td><td>  51.2307 ns</td><td>0.1371 ns</td>
-</tr><tr><td>              ArrayFind</td><td>1000</td><td> 463.5229 ns</td><td>0.3678 ns</td>
-</tr><tr><td>      ArrayBinarySearch</td><td>1000</td><td>  34.6840 ns</td><td>0.1350 ns</td>
-</tr><tr><td>               ListFind</td><td>1000</td><td>2,426.1389 ns</td><td>0.5448 ns</td>
-</tr><tr><td>      ListForEachSearch</td><td>1000</td><td>2,402.1840 ns</td><td>1.3564 ns</td>
-</tr><tr><td>          ListForSearch</td><td>1000</td><td>1,290.3562 ns</td><td>10.3697 ns</td>
-</tr><tr><td>       ListBinarySearch</td><td>1000</td><td>  35.3973 ns</td><td>0.0178 ns</td>
-</tr><tr><td>         LinkedListFind</td><td>1000</td><td>2,449.0615 ns</td><td>41.1815 ns</td>
-</tr><tr><td>  DictionaryContainsKey</td><td>1000</td><td>  10.0164 ns</td><td>0.0054 ns</td>
-</tr><tr><td>DictionaryContainsValue</td><td>1000</td><td>3,839.5643 ns</td><td>1.4490 ns</td>
-</tr><tr><td>  DictionaryTryGetValue</td><td>1000</td><td>  12.4794 ns</td><td>0.0112 ns</td>
-</tr><tr><td>SortedDictionaryContainsKey</td><td>1000</td><td> 106.4892 ns</td><td>0.2775 ns</td>
-</tr><tr><td>SortedDictionaryContainsValue</td><td>1000</td><td>15,525.8734 ns</td><td>24.2611 ns</td>
-</tr><tr><td>SortedDictionaryTryGetValue</td><td>1000</td><td> 105.9665 ns</td><td>0.1884 ns</td>
-</tr><tr><td>              ArrayFind</td><td>10000</td><td>4,438.5507 ns</td><td>1.2479 ns</td>
-</tr><tr><td>      ArrayBinarySearch</td><td>10000</td><td>  43.1142 ns</td><td>0.1283 ns</td>
-</tr><tr><td>               ListFind</td><td>10000</td><td>19,139.3735 ns</td><td>18.1428 ns</td>
-</tr><tr><td>      ListForEachSearch</td><td>10000</td><td>23,921.7689 ns</td><td>3.8912 ns</td>
-</tr><tr><td>          ListForSearch</td><td>10000</td><td>12,011.4781 ns</td><td>158.9679 ns</td>
-</tr><tr><td>       ListBinarySearch</td><td>10000</td><td>  43.9553 ns</td><td>0.0627 ns</td>
-</tr><tr><td>         LinkedListFind</td><td>10000</td><td>24,659.4203 ns</td><td>64.7284 ns</td>
-</tr><tr><td>  DictionaryContainsKey</td><td>10000</td><td>  10.8376 ns</td><td>0.0007 ns</td>
-</tr><tr><td>DictionaryContainsValue</td><td>10000</td><td>38,541.6753 ns</td><td>11.9302 ns</td>
-</tr><tr><td>  DictionaryTryGetValue</td><td>10000</td><td>  12.5077 ns</td><td>0.0158 ns</td>
-</tr><tr><td>SortedDictionaryContainsKey</td><td>10000</td><td> 129.6064 ns</td><td>0.1757 ns</td>
-</tr><tr><td>SortedDictionaryContainsValue</td><td>10000</td><td>167,911.5655 ns</td><td>387.1562 ns</td>
-</tr><tr><td>SortedDictionaryTryGetValue</td><td>10000</td><td> 127.3840 ns</td><td>0.8615 ns</td>
-</tr><tr><td>              ArrayFind</td><td>100000</td><td>44,231.2578 ns</td><td>167.5531 ns</td>
-</tr><tr><td>      ArrayBinarySearch</td><td>100000</td><td>  48.7704 ns</td><td>0.0427 ns</td>
-</tr><tr><td>               ListFind</td><td>100000</td><td>196,759.8578 ns</td><td>2,118.8579 ns</td>
-</tr><tr><td>      ListForEachSearch</td><td>100000</td><td>238,723.3444 ns</td><td>75.2686 ns</td>
-</tr><tr><td>          ListForSearch</td><td>100000</td><td>118,838.2870 ns</td><td>677.1182 ns</td>
-</tr><tr><td>       ListBinarySearch</td><td>100000</td><td>  50.3197 ns</td><td>0.1266 ns</td>
-</tr><tr><td>         LinkedListFind</td><td>100000</td><td>242,946.9282 ns</td><td>281.9325 ns</td>
-</tr><tr><td>  DictionaryContainsKey</td><td>100000</td><td>  10.0088 ns</td><td>0.0027 ns</td>
-</tr><tr><td>DictionaryContainsValue</td><td>100000</td><td>385,320.8908 ns</td><td>60.0131 ns</td>
-</tr><tr><td>  DictionaryTryGetValue</td><td>100000</td><td>  12.4943 ns</td><td>0.0240 ns</td>
-</tr><tr><td>SortedDictionaryContainsKey</td><td>100000</td><td> 154.8327 ns</td><td>0.3706 ns</td>
-</tr><tr><td>SortedDictionaryContainsValue</td><td>100000</td><td>1,702,128.3516 ns</td><td>4,170.1724 ns</td>
-</tr><tr><td>SortedDictionaryTryGetValue</td><td>100000</td><td> 155.3029 ns</td><td>0.3063 ns</td>
-</tr><tr><td>              ArrayFind</td><td>1000000</td><td>440,085.1190 ns</td><td>361.1147 ns</td>
-</tr><tr><td>      ArrayBinarySearch</td><td>1000000</td><td>  55.2429 ns</td><td>0.0576 ns</td>
-</tr><tr><td>               ListFind</td><td>1000000</td><td>2,085,966.8533 ns</td><td>17,568.6211 ns</td>
-</tr><tr><td>      ListForEachSearch</td><td>1000000</td><td>2,386,487.6539 ns</td><td>693.6862 ns</td>
-</tr><tr><td>          ListForSearch</td><td>1000000</td><td>1,171,371.9148 ns</td><td>814.8348 ns</td>
-</tr><tr><td>       ListBinarySearch</td><td>1000000</td><td>  56.7680 ns</td><td>0.0131 ns</td>
-</tr><tr><td>         LinkedListFind</td><td>1000000</td><td>4,421,718.3098 ns</td><td>2,893.9549 ns</td>
-</tr><tr><td>  DictionaryContainsKey</td><td>1000000</td><td>  10.0137 ns</td><td>0.0109 ns</td>
-</tr><tr><td>DictionaryContainsValue</td><td>1000000</td><td>3,886,768.4185 ns</td><td>4,171.3115 ns</td>
-</tr><tr><td>  DictionaryTryGetValue</td><td>1000000</td><td>  12.4961 ns</td><td>0.0085 ns</td>
-</tr><tr><td>SortedDictionaryContainsKey</td><td>1000000</td><td> 180.7635 ns</td><td>1.1392 ns</td>
-</tr><tr><td>SortedDictionaryContainsValue</td><td>1000000</td><td>24,639,463.9183 ns</td><td>51,794.0397 ns</td>
-</tr><tr><td>SortedDictionaryTryGetValue</td><td>1000000</td><td> 182.5656 ns</td><td>0.1551 ns</td>
+</thead><tbody><tr><td>              ArrayFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>  70.3315 ns</td><td>0.0073 ns</td><td>0.0253 ns</td><td>  70.3258 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>5,316.5206 ns</td><td>10.9345 ns</td><td>42.3492 ns</td><td>5,320.1200 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>  25.9810 ns</td><td>0.0124 ns</td><td>0.0481 ns</td><td>  25.9617 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td> 274.1602 ns</td><td>0.2592 ns</td><td>0.9700 ns</td><td> 274.4283 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>5,564.9400 ns</td><td>16.2350 ns</td><td>62.8777 ns</td><td>5,547.9025 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td> 269.0208 ns</td><td>0.0672 ns</td><td>0.2327 ns</td><td> 268.9254 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td> 198.6369 ns</td><td>0.9753 ns</td><td>3.6492 ns</td><td> 197.1339 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>  28.9894 ns</td><td>0.0156 ns</td><td>0.0561 ns</td><td>  29.0022 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td> 206.8565 ns</td><td>2.0720 ns</td><td>9.7188 ns</td><td> 201.3658 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>   9.2134 ns</td><td>0.0057 ns</td><td>0.0213 ns</td><td>   9.2067 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td> 291.7224 ns</td><td>0.7847 ns</td><td>3.0392 ns</td><td> 291.8152 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>  11.0837 ns</td><td>0.0071 ns</td><td>0.0275 ns</td><td>  11.0702 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>  52.8664 ns</td><td>0.0328 ns</td><td>0.1229 ns</td><td>  52.8698 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>1,528.3682 ns</td><td>1.8382 ns</td><td>6.3678 ns</td><td>1,526.4075 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100</td><td>  51.7051 ns</td><td>0.0243 ns</td><td>0.0877 ns</td><td>  51.6668 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>  71.0050 ns</td><td>0.0358 ns</td><td>0.1340 ns</td><td>  71.0197 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>13,177.1555 ns</td><td>44.6018 ns</td><td>172.7419 ns</td><td>13,153.9543 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>  27.6989 ns</td><td>0.0275 ns</td><td>0.1029 ns</td><td>  27.6900 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td> 229.3276 ns</td><td>0.2214 ns</td><td>0.7982 ns</td><td> 229.4620 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>14,687.1497 ns</td><td>45.5914 ns</td><td>176.5746 ns</td><td>14,677.2878 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td> 261.8959 ns</td><td>0.1155 ns</td><td>0.4472 ns</td><td> 261.7210 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td> 152.6690 ns</td><td>1.5374 ns</td><td>11.0866 ns</td><td> 153.6969 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>  29.0386 ns</td><td>0.0011 ns</td><td>0.0038 ns</td><td>  29.0394 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td> 275.6823 ns</td><td>0.0528 ns</td><td>0.2043 ns</td><td> 275.5886 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>   9.7708 ns</td><td>0.0057 ns</td><td>0.0214 ns</td><td>   9.7610 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td> 400.8751 ns</td><td>0.0935 ns</td><td>0.3370 ns</td><td> 400.9918 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>  12.8767 ns</td><td>0.0463 ns</td><td>0.1792 ns</td><td>  12.9259 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>  51.7967 ns</td><td>0.0818 ns</td><td>0.3168 ns</td><td>  51.8952 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>1,620.9640 ns</td><td>0.4313 ns</td><td>1.5549 ns</td><td>1,620.6084 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100</td><td>  51.7044 ns</td><td>0.0378 ns</td><td>0.1465 ns</td><td>  51.6937 ns</td>
+</tr><tr><td>              ArrayFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>  70.2485 ns</td><td>0.0124 ns</td><td>0.0448 ns</td><td>  70.2419 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>5,109.6809 ns</td><td>32.2096 ns</td><td>124.7474 ns</td><td>5,110.1003 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>  26.0052 ns</td><td>0.0594 ns</td><td>0.2222 ns</td><td>  25.9395 ns</td>
+</tr><tr><td>               ListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td> 305.9104 ns</td><td>0.0197 ns</td><td>0.0735 ns</td><td> 305.8906 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>5,489.9961 ns</td><td>23.9416 ns</td><td>92.7254 ns</td><td>5,477.3946 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td> 230.8322 ns</td><td>0.1214 ns</td><td>0.4205 ns</td><td> 230.6986 ns</td>
+</tr><tr><td>          ListForSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td> 124.7957 ns</td><td>0.5621 ns</td><td>2.1033 ns</td><td> 124.5282 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>  28.3131 ns</td><td>0.0087 ns</td><td>0.0302 ns</td><td>  28.3076 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td> 199.7212 ns</td><td>0.0152 ns</td><td>0.0569 ns</td><td> 199.7174 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>   8.9752 ns</td><td>0.0003 ns</td><td>0.0010 ns</td><td>   8.9753 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td> 289.9779 ns</td><td>1.4092 ns</td><td>5.0810 ns</td><td> 291.5343 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>  11.0071 ns</td><td>0.0003 ns</td><td>0.0010 ns</td><td>  11.0071 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>  55.9671 ns</td><td>0.0153 ns</td><td>0.0593 ns</td><td>  55.9633 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>1,453.3651 ns</td><td>1.7454 ns</td><td>6.7599 ns</td><td>1,454.2206 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100</td><td>  55.7735 ns</td><td>0.0180 ns</td><td>0.0696 ns</td><td>  55.7704 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td> 466.7372 ns</td><td>0.0152 ns</td><td>0.0528 ns</td><td> 466.7345 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>14,150.2607 ns</td><td>23.5195 ns</td><td>91.0905 ns</td><td>14,139.2464 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>  27.8085 ns</td><td>0.1243 ns</td><td>0.4815 ns</td><td>  27.8299 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>2,415.5739 ns</td><td>0.3507 ns</td><td>1.3582 ns</td><td>2,415.1798 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>14,781.0082 ns</td><td>35.2599 ns</td><td>136.5609 ns</td><td>14,753.0641 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>2,465.0703 ns</td><td>0.4084 ns</td><td>1.4147 ns</td><td>2,465.3859 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>1,384.8783 ns</td><td>3.1769 ns</td><td>12.3041 ns</td><td>1,381.3678 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>  30.0280 ns</td><td>0.0490 ns</td><td>0.1833 ns</td><td>  30.0032 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>3,329.9466 ns</td><td>5.3576 ns</td><td>20.0462 ns</td><td>3,323.3513 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>   9.7008 ns</td><td>0.0003 ns</td><td>0.0009 ns</td><td>   9.7004 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>2,669.6465 ns</td><td>0.3664 ns</td><td>1.2692 ns</td><td>2,670.0001 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>  11.0635 ns</td><td>0.0049 ns</td><td>0.0182 ns</td><td>  11.0539 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>  99.6466 ns</td><td>0.0431 ns</td><td>0.1612 ns</td><td>  99.6136 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>15,220.7418 ns</td><td>43.9853 ns</td><td>164.5781 ns</td><td>15,284.4090 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000</td><td>  95.6013 ns</td><td>0.0662 ns</td><td>0.2477 ns</td><td>  95.5902 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td> 462.7136 ns</td><td>0.0276 ns</td><td>0.1067 ns</td><td> 462.6990 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>73,109.4468 ns</td><td>246.9982 ns</td><td>956.6198 ns</td><td>73,003.5847 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>  34.1436 ns</td><td>0.0062 ns</td><td>0.0234 ns</td><td>  34.1457 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>2,129.3691 ns</td><td>0.1078 ns</td><td>0.4035 ns</td><td>2,129.3782 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>74,294.2536 ns</td><td>311.3895 ns</td><td>1,206.0062 ns</td><td>74,409.9109 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>2,402.1656 ns</td><td>1.5398 ns</td><td>5.9638 ns</td><td>2,398.8487 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>1,365.3142 ns</td><td>12.9066 ns</td><td>51.6263 ns</td><td>1,355.9365 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>  35.2704 ns</td><td>0.0048 ns</td><td>0.0166 ns</td><td>  35.2695 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>2,552.6360 ns</td><td>1.6386 ns</td><td>5.9081 ns</td><td>2,554.0824 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>   9.7574 ns</td><td>0.0011 ns</td><td>0.0039 ns</td><td>   9.7562 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>3,858.3988 ns</td><td>0.9891 ns</td><td>3.7010 ns</td><td>3,857.9779 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>  12.6303 ns</td><td>0.0013 ns</td><td>0.0046 ns</td><td>  12.6294 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td> 102.1172 ns</td><td>0.1591 ns</td><td>0.6161 ns</td><td> 101.8169 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td>16,333.8242 ns</td><td>3.9915 ns</td><td>14.9349 ns</td><td>16,331.4084 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000</td><td> 101.3359 ns</td><td>0.0435 ns</td><td>0.1628 ns</td><td> 101.2771 ns</td>
+</tr><tr><td>              ArrayFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td> 469.1257 ns</td><td>0.2559 ns</td><td>0.9228 ns</td><td> 468.9552 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>13,904.7246 ns</td><td>27.7055 ns</td><td>107.3029 ns</td><td>13,894.1805 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>  27.6359 ns</td><td>0.0434 ns</td><td>0.1563 ns</td><td>  27.6206 ns</td>
+</tr><tr><td>               ListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>2,913.5860 ns</td><td>0.1452 ns</td><td>0.5624 ns</td><td>2,913.4539 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>14,653.7211 ns</td><td>30.9440 ns</td><td>119.8457 ns</td><td>14,606.7912 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>2,132.7665 ns</td><td>0.6827 ns</td><td>2.5545 ns</td><td>2,131.4460 ns</td>
+</tr><tr><td>          ListForSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>1,103.8277 ns</td><td>1.3257 ns</td><td>5.1344 ns</td><td>1,103.2161 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>  29.2830 ns</td><td>0.0231 ns</td><td>0.0832 ns</td><td>  29.2621 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>3,318.0788 ns</td><td>2.0512 ns</td><td>7.9443 ns</td><td>3,317.9987 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>   9.0128 ns</td><td>0.0049 ns</td><td>0.0183 ns</td><td>   9.0147 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>2,667.1184 ns</td><td>1.1059 ns</td><td>3.9875 ns</td><td>2,668.2128 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>  11.0080 ns</td><td>0.0008 ns</td><td>0.0032 ns</td><td>  11.0082 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td> 105.6385 ns</td><td>0.3494 ns</td><td>1.3533 ns</td><td> 104.6776 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td>15,310.1127 ns</td><td>4.3175 ns</td><td>16.7217 ns</td><td>15,306.5769 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000</td><td> 107.2131 ns</td><td>0.0129 ns</td><td>0.0500 ns</td><td> 107.2061 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>4,488.0721 ns</td><td>1.2362 ns</td><td>4.2824 ns</td><td>4,486.6443 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>41,231.3932 ns</td><td>78.7180 ns</td><td>304.8736 ns</td><td>41,318.4909 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>  34.1519 ns</td><td>0.2047 ns</td><td>0.7659 ns</td><td>  34.0358 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>23,867.5073 ns</td><td>7.2232 ns</td><td>26.0435 ns</td><td>23,863.9949 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>44,141.1790 ns</td><td>122.6118 ns</td><td>474.8734 ns</td><td>43,977.3835 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>24,355.9722 ns</td><td>0.7663 ns</td><td>2.6544 ns</td><td>24,355.6285 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>13,398.5213 ns</td><td>53.1844 ns</td><td>205.9821 ns</td><td>13,300.1224 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>  36.2965 ns</td><td>0.0161 ns</td><td>0.0625 ns</td><td>  36.3157 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>39,125.7386 ns</td><td>1.5350 ns</td><td>5.7436 ns</td><td>39,126.8432 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>   9.1933 ns</td><td>0.0006 ns</td><td>0.0020 ns</td><td>   9.1934 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>26,229.8588 ns</td><td>129.4583 ns</td><td>593.2523 ns</td><td>26,437.4790 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>  11.0564 ns</td><td>0.0005 ns</td><td>0.0019 ns</td><td>  11.0559 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td> 119.4372 ns</td><td>0.1669 ns</td><td>0.6466 ns</td><td> 119.5423 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td>171,238.3738 ns</td><td>393.1393 ns</td><td>1,522.6220 ns</td><td>172,035.8132 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>10000</td><td> 117.2682 ns</td><td>0.0380 ns</td><td>0.1470 ns</td><td> 117.3438 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>4,433.8405 ns</td><td>0.2017 ns</td><td>0.7813 ns</td><td>4,433.7316 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>193,379.1334 ns</td><td>1,917.2811 ns</td><td>9,776.2537 ns</td><td>191,585.1413 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>  43.2848 ns</td><td>0.0062 ns</td><td>0.0241 ns</td><td>  43.2799 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>21,111.1935 ns</td><td>0.3913 ns</td><td>1.4108 ns</td><td>21,110.9641 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>195,404.8335 ns</td><td>1,377.4498 ns</td><td>5,334.8402 ns</td><td>194,021.2407 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>23,936.3897 ns</td><td>0.7142 ns</td><td>2.5751 ns</td><td>23,935.6260 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>12,518.1901 ns</td><td>116.1954 ns</td><td>450.0228 ns</td><td>12,282.2266 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>  44.7172 ns</td><td>0.0036 ns</td><td>0.0138 ns</td><td>  44.7193 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>26,540.7944 ns</td><td>21.8026 ns</td><td>72.3110 ns</td><td>26,524.9113 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>   9.7595 ns</td><td>0.0004 ns</td><td>0.0014 ns</td><td>   9.7592 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>38,478.6946 ns</td><td>0.3947 ns</td><td>1.4231 ns</td><td>38,478.6314 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>  12.6574 ns</td><td>0.0005 ns</td><td>0.0021 ns</td><td>  12.6572 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td> 122.8311 ns</td><td>0.0491 ns</td><td>0.1836 ns</td><td> 122.7748 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td>174,678.3258 ns</td><td>27.6414 ns</td><td>103.4245 ns</td><td>174,680.6320 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>10000</td><td> 123.2437 ns</td><td>0.0459 ns</td><td>0.1717 ns</td><td> 123.2083 ns</td>
+</tr><tr><td>              ArrayFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>4,546.3965 ns</td><td>11.3098 ns</td><td>42.3175 ns</td><td>4,548.1803 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>40,375.9108 ns</td><td>76.6218 ns</td><td>296.7548 ns</td><td>40,388.5918 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>  33.8551 ns</td><td>0.1567 ns</td><td>0.6069 ns</td><td>  33.7027 ns</td>
+</tr><tr><td>               ListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>26,582.4871 ns</td><td>19.4228 ns</td><td>72.6735 ns</td><td>26,591.7269 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>44,000.2480 ns</td><td>57.0915 ns</td><td>213.6169 ns</td><td>44,015.8526 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>21,121.1630 ns</td><td>0.4855 ns</td><td>1.8166 ns</td><td>21,120.7689 ns</td>
+</tr><tr><td>          ListForSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>11,166.3640 ns</td><td>25.2273 ns</td><td>97.7051 ns</td><td>11,166.1021 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>  35.4561 ns</td><td>0.0227 ns</td><td>0.0878 ns</td><td>  35.4632 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>38,954.7735 ns</td><td>1.8096 ns</td><td>6.7710 ns</td><td>38,954.7608 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>   8.9784 ns</td><td>0.0005 ns</td><td>0.0019 ns</td><td>   8.9783 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>26,456.0051 ns</td><td>3.8655 ns</td><td>14.4633 ns</td><td>26,449.7397 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>  11.0146 ns</td><td>0.0012 ns</td><td>0.0044 ns</td><td>  11.0136 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td> 131.1437 ns</td><td>0.0178 ns</td><td>0.0666 ns</td><td> 131.1623 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td>174,222.0019 ns</td><td>110.0452 ns</td><td>411.7515 ns</td><td>174,193.6549 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>10000</td><td> 128.3619 ns</td><td>0.0068 ns</td><td>0.0255 ns</td><td> 128.3659 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>44,566.7678 ns</td><td>1.3954 ns</td><td>4.8338 ns</td><td>44,565.3452 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>156,825.3993 ns</td><td>1,553.4005 ns</td><td>8,071.7060 ns</td><td>157,970.3324 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>  37.6995 ns</td><td>0.2015 ns</td><td>0.7805 ns</td><td>  37.8178 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>237,629.0596 ns</td><td>95.1209 ns</td><td>355.9097 ns</td><td>237,696.4475 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>179,493.0924 ns</td><td>1,966.7964 ns</td><td>7,617.3695 ns</td><td>179,674.6070 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>243,356.4352 ns</td><td>49.1892 ns</td><td>184.0493 ns</td><td>243,354.4761 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>132,364.3729 ns</td><td>91.0409 ns</td><td>328.2528 ns</td><td>132,267.7463 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>  40.7587 ns</td><td>0.0641 ns</td><td>0.2399 ns</td><td>  40.7654 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>420,721.5078 ns</td><td>4,056.1090 ns</td><td>15,709.2425 ns</td><td>410,970.9390 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>   9.1981 ns</td><td>0.0012 ns</td><td>0.0046 ns</td><td>   9.1971 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>249,385.4672 ns</td><td>1,511.7889 ns</td><td>5,656.5961 ns</td><td>247,793.1788 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>  11.0608 ns</td><td>0.0005 ns</td><td>0.0018 ns</td><td>  11.0611 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td> 143.5520 ns</td><td>0.0261 ns</td><td>0.0976 ns</td><td> 143.5083 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td>1,833,006.9802 ns</td><td>1,357.1438 ns</td><td>5,077.9671 ns</td><td>1,831,845.6722 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>100000</td><td> 143.8741 ns</td><td>0.0263 ns</td><td>0.0911 ns</td><td> 143.8780 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>44,086.1772 ns</td><td>1.8959 ns</td><td>7.0937 ns</td><td>44,086.1313 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>535,988.3453 ns</td><td>6,727.7213 ns</td><td>66,939.9813 ns</td><td>536,669.1314 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>  49.1953 ns</td><td>0.0037 ns</td><td>0.0138 ns</td><td>  49.1959 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>210,895.3181 ns</td><td>5.5943 ns</td><td>20.9318 ns</td><td>210,886.7262 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>622,658.0181 ns</td><td>6,221.4063 ns</td><td>58,361.9648 ns</td><td>629,556.3543 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>238,700.4397 ns</td><td>12.0027 ns</td><td>46.4861 ns</td><td>238,681.8301 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>118,441.0445 ns</td><td>113.5900 ns</td><td>393.4871 ns</td><td>118,285.8657 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>  50.4038 ns</td><td>0.0028 ns</td><td>0.0106 ns</td><td>  50.4025 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>247,802.7978 ns</td><td>338.4445 ns</td><td>1,310.7898 ns</td><td>247,813.3312 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>   9.7626 ns</td><td>0.0003 ns</td><td>0.0011 ns</td><td>   9.7621 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>384,496.1032 ns</td><td>6.9075 ns</td><td>24.9053 ns</td><td>384,487.7516 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>  12.6267 ns</td><td>0.0012 ns</td><td>0.0048 ns</td><td>  12.6263 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td> 150.2088 ns</td><td>0.0511 ns</td><td>0.1979 ns</td><td> 150.2414 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td>1,760,646.5048 ns</td><td>630.0865 ns</td><td>2,271.8091 ns</td><td>1,760,705.9334 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>100000</td><td> 150.2892 ns</td><td>0.0215 ns</td><td>0.0744 ns</td><td> 150.3094 ns</td>
+</tr><tr><td>              ArrayFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>44,589.6310 ns</td><td>0.9790 ns</td><td>3.3913 ns</td><td>44,588.7500 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>161,329.3598 ns</td><td>1,124.5099 ns</td><td>4,207.5307 ns</td><td>162,181.2490 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>  38.1543 ns</td><td>0.2575 ns</td><td>0.9975 ns</td><td>  38.0266 ns</td>
+</tr><tr><td>               ListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>277,494.3335 ns</td><td>423.6443 ns</td><td>1,640.7672 ns</td><td>277,167.0567 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>192,824.2101 ns</td><td>1,918.0596 ns</td><td>7,428.6130 ns</td><td>193,328.3538 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>211,030.7931 ns</td><td>6.7093 ns</td><td>25.9848 ns</td><td>211,025.9931 ns</td>
+</tr><tr><td>          ListForSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>112,236.6854 ns</td><td>711.0146 ns</td><td>2,660.3729 ns</td><td>110,601.3051 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>  40.1136 ns</td><td>0.0210 ns</td><td>0.0759 ns</td><td>  40.1072 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>395,344.0556 ns</td><td>206.8204 ns</td><td>801.0120 ns</td><td>395,129.0838 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>   8.9891 ns</td><td>0.0009 ns</td><td>0.0035 ns</td><td>   8.9880 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>258,449.9410 ns</td><td>246.1269 ns</td><td>887.4231 ns</td><td>258,581.5017 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>  11.0037 ns</td><td>0.0009 ns</td><td>0.0036 ns</td><td>  11.0029 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td> 159.7938 ns</td><td>0.1064 ns</td><td>0.3687 ns</td><td> 159.6576 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td>1,812,587.6543 ns</td><td>2,030.2236 ns</td><td>7,596.4012 ns</td><td>1,810,111.0787 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>100000</td><td> 159.9685 ns</td><td>0.0185 ns</td><td>0.0694 ns</td><td> 159.9541 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>444,827.6272 ns</td><td>5.7399 ns</td><td>21.4767 ns</td><td>444,825.0150 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>228,868.0456 ns</td><td>3,333.8554 ns</td><td>33,171.4428 ns</td><td>235,943.5207 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>  49.2552 ns</td><td>0.1261 ns</td><td>0.4717 ns</td><td>  49.3802 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>2,372,784.6276 ns</td><td>494.4577 ns</td><td>1,782.7927 ns</td><td>2,372,061.2857 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>573,881.0035 ns</td><td>6,464.2777 ns</td><td>25,036.0398 ns</td><td>573,036.4307 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>2,433,418.1454 ns</td><td>236.7450 ns</td><td>885.8187 ns</td><td>2,433,418.7985 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>1,321,259.1766 ns</td><td>590.8004 ns</td><td>2,130.1612 ns</td><td>1,320,694.1646 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>  45.5964 ns</td><td>0.0944 ns</td><td>0.3404 ns</td><td>  45.5683 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>8,133,782.3691 ns</td><td>572.2612 ns</td><td>1,982.3710 ns</td><td>8,134,417.7988 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>   9.2216 ns</td><td>0.0006 ns</td><td>0.0021 ns</td><td>   9.2208 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>2,659,125.0478 ns</td><td>1,041.1392 ns</td><td>3,753.8807 ns</td><td>2,660,241.8848 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>  11.0615 ns</td><td>0.0009 ns</td><td>0.0036 ns</td><td>  11.0602 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td> 189.7644 ns</td><td>0.0648 ns</td><td>0.2509 ns</td><td> 189.6463 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td>29,934,797.7874 ns</td><td>17,761.3163 ns</td><td>68,789.2822 ns</td><td>29,947,956.2094 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX64</td><td>LegacyJit</td><td>X64</td><td>1000000</td><td> 169.3055 ns</td><td>0.0381 ns</td><td>0.1474 ns</td><td> 169.2622 ns</td>
+</tr><tr><td>              ArrayFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>439,706.2635 ns</td><td>31.5466 ns</td><td>122.1795 ns</td><td>439,671.4444 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>1,130,110.7343 ns</td><td>11,273.1762 ns</td><td>93,642.0342 ns</td><td>1,155,327.8864 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>  55.4237 ns</td><td>0.0056 ns</td><td>0.0216 ns</td><td>  55.4332 ns</td>
+</tr><tr><td>               ListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>2,107,402.1297 ns</td><td>140.5574 ns</td><td>544.3763 ns</td><td>2,107,226.2818 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>1,231,248.9139 ns</td><td>12,292.8707 ns</td><td>84,275.6756 ns</td><td>1,242,230.8898 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>2,387,501.0614 ns</td><td>277.7979 ns</td><td>1,039.4244 ns</td><td>2,387,023.6728 ns</td>
+</tr><tr><td>          ListForSearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>1,187,563.9788 ns</td><td>120.9117 ns</td><td>452.4101 ns</td><td>1,187,553.6930 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>  56.8041 ns</td><td>0.0049 ns</td><td>0.0183 ns</td><td>  56.8030 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>4,396,382.0898 ns</td><td>532.7072 ns</td><td>1,993.2079 ns</td><td>4,396,952.5398 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>   9.7886 ns</td><td>0.0004 ns</td><td>0.0014 ns</td><td>   9.7883 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>3,878,114.4479 ns</td><td>287.8489 ns</td><td>1,114.8341 ns</td><td>3,878,147.6670 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>  12.6292 ns</td><td>0.0013 ns</td><td>0.0047 ns</td><td>  12.6290 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td> 177.2298 ns</td><td>0.0443 ns</td><td>0.1657 ns</td><td> 177.2166 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td>25,963,244.0654 ns</td><td>13,020.7797 ns</td><td>43,185.0407 ns</td><td>25,961,443.7506 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>LegacyJitX86</td><td>LegacyJit</td><td>X86</td><td>1000000</td><td> 180.5879 ns</td><td>0.0113 ns</td><td>0.0423 ns</td><td> 180.5782 ns</td>
+</tr><tr><td>              ArrayFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>446,653.1296 ns</td><td>24.8218 ns</td><td>92.8748 ns</td><td>446,634.5990 ns</td>
+</tr><tr><td>      ArrayParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>221,958.7353 ns</td><td>3,866.2932 ns</td><td>38,662.9316 ns</td><td>224,089.5960 ns</td>
+</tr><tr><td>      ArrayBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>  43.2994 ns</td><td>0.3434 ns</td><td>1.3301 ns</td><td>  43.4445 ns</td>
+</tr><tr><td>               ListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>2,777,472.1091 ns</td><td>1,441.2660 ns</td><td>5,581.9992 ns</td><td>2,777,478.3567 ns</td>
+</tr><tr><td>       ListParallelFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>330,178.0970 ns</td><td>3,294.0300 ns</td><td>30,724.6666 ns</td><td>327,827.6563 ns</td>
+</tr><tr><td>      ListForEachSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>2,109,356.6370 ns</td><td>48.2742 ns</td><td>180.6254 ns</td><td>2,109,274.0246 ns</td>
+</tr><tr><td>          ListForSearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>1,105,877.2237 ns</td><td>1,782.4892 ns</td><td>6,669.4639 ns</td><td>1,102,642.1978 ns</td>
+</tr><tr><td>       ListBinarySearch</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>  43.1669 ns</td><td>0.0747 ns</td><td>0.2796 ns</td><td>  43.1949 ns</td>
+</tr><tr><td>         LinkedListFind</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>8,090,697.1918 ns</td><td>2,498.4696 ns</td><td>9,676.5312 ns</td><td>8,086,264.1178 ns</td>
+</tr><tr><td>  DictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>   8.9816 ns</td><td>0.0007 ns</td><td>0.0026 ns</td><td>   8.9805 ns</td>
+</tr><tr><td>DictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>2,630,260.7296 ns</td><td>9,013.9254 ns</td><td>34,910.7831 ns</td><td>2,633,419.1349 ns</td>
+</tr><tr><td>  DictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>  11.0056 ns</td><td>0.0018 ns</td><td>0.0069 ns</td><td>  11.0030 ns</td>
+</tr><tr><td>SortedDictionaryContainsKey</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td> 192.0400 ns</td><td>0.1048 ns</td><td>0.3778 ns</td><td> 192.0441 ns</td>
+</tr><tr><td>SortedDictionaryContainsValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td>26,976,484.2393 ns</td><td>31,473.5311 ns</td><td>121,896.4619 ns</td><td>26,921,500.2231 ns</td>
+</tr><tr><td>SortedDictionaryTryGetValue</td><td>RyuJitX64</td><td>RyuJit</td><td>X64</td><td>1000000</td><td> 190.8007 ns</td><td>0.1310 ns</td><td>0.5073 ns</td><td> 190.8578 ns</td>
 </tr></tbody></table>
 </body>
 </html>

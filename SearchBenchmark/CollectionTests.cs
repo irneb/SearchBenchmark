@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Attributes.Exporters;
 using BenchmarkDotNet.Attributes.Jobs;
+using ParallelSearch;
 
 namespace SearchBenchmark
 {
@@ -60,6 +61,13 @@ namespace SearchBenchmark
         }
 
         [Benchmark]
+        public int ArrayParallelFind()
+        {
+            var val = LastValue;
+            return array.PIndexOf<int>(val);
+        }
+
+        [Benchmark]
         public int ArrayBinarySearch()
         {
             var val = LastValue;
@@ -71,6 +79,13 @@ namespace SearchBenchmark
         {
             var val = LastValue;
             return list.FindIndex(item => item.Equals(val));
+        }
+
+        [Benchmark]
+        public int ListParallelFind()
+        {
+            var val = LastValue;
+            return list.PIndexOf<int>(val);
         }
 
         [Benchmark]
